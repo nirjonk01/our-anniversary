@@ -14,26 +14,37 @@
         .element { position: absolute; color: white; font-size: 20px; animation: fall linear infinite; }
         @keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
 
-        header { text-align: center; padding: 60px 20px; background: #ff8fa3; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        header h1 { font-family: 'Sacramento', cursive; font-size: 4rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-        header p { font-size: 1.2rem; margin-top: 5px; font-weight: 600; letter-spacing: 1px; }
+        header { text-align: center; padding: 40px 15px; background: #ff8fa3; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        header h1 { font-family: 'Sacramento', cursive; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        header p { font-size: 1.1rem; margin-top: 5px; font-weight: 600; letter-spacing: 1px; }
         
         /* Cute Counter Box */
-        #counter-box { text-align: center; padding: 25px 20px; font-size: 1.3rem; font-weight: 600; color: #590d22; background: linear-gradient(135deg, #ffffff 0%, #fff0f3 100%); margin: 30px auto; max-width: 650px; border-radius: 20px; box-shadow: 0 8px 25px rgba(214, 51, 132, 0.15); border: 2px dashed #ffb3c1; }
-        #counter-box .date-title { font-size: 1rem; color: #800f2f; margin-bottom: 8px; display: block; }
-        #counter-box .days-count { color: #ff4d6d; font-size: 2.2rem; font-weight: 700; font-family: 'Sacramento', cursive; display: inline-block; margin: 0 5px; }
+        #counter-box { text-align: center; padding: 20px 15px; font-size: 1.1rem; font-weight: 600; color: #590d22; background: linear-gradient(135deg, #ffffff 0%, #fff0f3 100%); margin: 20px auto; max-width: 90%; border-radius: 20px; box-shadow: 0 8px 25px rgba(214, 51, 132, 0.15); border: 2px dashed #ffb3c1; }
+        #counter-box .date-title { font-size: 0.9rem; color: #800f2f; margin-bottom: 6px; display: block; }
+        #counter-box .days-count { color: #ff4d6d; font-size: 2rem; font-weight: 700; font-family: 'Sacramento', cursive; display: inline-block; margin: 0 5px; }
 
-        /* Timeline */
-        .timeline { max-width: 800px; margin: 40px auto; position: relative; padding: 20px; }
+        /* Timeline for Desktop & Mobile */
+        .timeline { max-width: 800px; margin: 20px auto; position: relative; padding: 10px; }
         .timeline::after { content: ''; position: absolute; width: 4px; background: white; top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
-        .card { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
-        .card::after { content: ''; position: absolute; width: 18px; height: 18px; right: -9px; background-color: #ff8fa3; border: 3px solid #fff; top: 20px; border-radius: 50%; z-index: 1; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
-        .left { left: 0; } .right { left: 50%; } .right::after { left: -9px; }
+        .card { padding: 10px 20px; position: relative; background: inherit; width: 50%; }
+        .card::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: #ff8fa3; border: 3px solid #fff; top: 20px; border-radius: 50%; z-index: 1; box-shadow: 0 0 5px rgba(0,0,0,0.2); }
+        .left { left: 0; } .right { left: 50%; } .right::after { left: -8px; }
         
-        /* Larger Content Container */
-        .content { padding: 25px; background: white; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15); border: 2px solid #ffe5ec; }
-        .content img { width: 100%; max-width: 400px; height: auto; border-radius: 15px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .poem-text { font-size: 1.1rem; line-height: 1.8; color: #590d22; white-space: pre-line; margin-top: 10px; font-style: italic; font-weight: 500; }
+        /* Content Container */
+        .content { padding: 20px; background: white; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(214, 51, 132, 0.15); border: 2px solid #ffe5ec; }
+        .content img { width: 100%; max-width: 100%; height: auto; border-radius: 15px; margin-bottom: 15px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .poem-text { font-size: 0.95rem; line-height: 1.6; color: #590d22; white-space: pre-line; margin-top: 10px; font-style: italic; font-weight: 500; }
+
+        /* Mobile Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 30px; }
+            .card { width: 100%; padding-left: 60px; padding-right: 15px; }
+            .card::after { left: 22px; }
+            .right { left: 0%; }
+            .right::after { left: 22px; }
+            header h1 { font-size: 2.5rem; }
+            #counter-box { font-size: 1rem; padding: 15px 10px; }
+        }
     </style>
 </head>
 <body>
@@ -48,7 +59,7 @@
 <div id="counter-box">
     <span class="date-title">✨ ১৮ আগস্ট, ২০২৪ থেকে অনন্তকাল (Infinity) ✨</span>
     হাতে হাত রেখে কাটলো: <span class="days-count" id="timer">0</span> দিন 🌸<br>
-    <span style="font-size: 1.1rem; color: #b5838d; font-style: italic;">এভাবেই কেটে যাক হাজার বছর! ∞</span>
+    <span style="font-size: 1rem; color: #b5838d; font-style: italic;">এভাবেই কেটে যাক হাজার বছর! ∞</span>
 </div>
 
 <div class="timeline">
@@ -59,7 +70,7 @@
     <div class="card right"><div class="content"><img src="1000240445.jpg"><p class="poem-text">আমি সেই অবহেলা, আমি সেই নতমুখ,<br>নিরবে ফিরে যাওয়া অভিমান-ভেজা চোখ, আমাকে গ্রহন করো।</p></div></div>
     
     <!-- Item 3 -->
-    <div class="card left"><div class="content"><img src="1000240444.jpg"><p class="poem-text">আমাদের দুজনের মুখে আগুনের খরতাপ。<br>আলিঙ্গনে থরথর তুমি বলেছিলে, 'আমাকে বাঁচাও এই বর্বর আগুন থেকে, আমাকে বাঁচাও'<br>আমাকে লুকিয়ে ফেল চোখের পাতায় বুকের অতলে কিংবা একান্ত পাঁজরে,<br>শুষে নাও নিমেষে আমাকে<br>চুম্বনে চুম্বনে।</p></div></div>
+    <div class="card left"><div class="content"><img src="1000240444.jpg"><p class="poem-text">আমাদের দুজনের মুখে আগুনের খরতাপ。<br>আলিঙ্গনে থরথর তুমি বলেছিলে, 'আমাকে বাঁচাও এই বর্বর আগুন থেকে, আমাকে বাঁচাও'<br>আমাকে লুকিয়ে ফেল চোখের পাতায় বুকের অতলে কিংবা একান্ত পাঁজরে,<br>শুষে নাও নিমেষে আমাকে<br>চুম্বনে চুম্বনে。</p></div></div>
     
     <!-- Item 4 -->
     <div class="card right"><div class="content"><img src="1000240441.jpg"><p class="poem-text">লাঠিতে ভর দিয়ে যখন আমরা<br>উঠোনে এসে দাঁড়াব, তখন আকাশের চাঁদের চেয়েও আমাদের এই রূপালী বার্ধক্যকে বেশি সুন্দর দেখাবে。<br>এসো, রূপালী বার্ধক্য সাজাতে<br>এক জীবনের গল্প শেষে আমরা<br>দুজনে একসাথে বুড়ো হই।</p></div></div>
@@ -70,7 +81,7 @@
 
 <script>
     const container = document.getElementById('fallingElements');
-    for(let i=0; i<35; i++){
+    for(let i=0; i<25; i++){
         const el = document.createElement('div');
         el.className = 'element';
         el.innerHTML = Math.random() > 0.5 ? '🌸' : '❤️';
